@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<style>
+body { background:#0f172a; color:white; text-align:center; }
+.box { background:#1e293b; padding:20px; margin:20px auto; width:60%; border-radius:10px;}
+input { padding:10px; margin:5px; }
+button { padding:10px; background:#38bdf8; border:none; }
+table { margin:auto; background:white; color:black; }
+</style>
+</head>
+
+<body>
+
+<h1>🚆 Railway Reservation</h1>
+
+<div class="box">
+<form method="POST">
+<input name="name" placeholder="Passenger Name">
+<button name="action" value="book">Book</button>
+</form>
+</div>
+
+<div class="box">
+<form method="POST">
+<input name="pnr" placeholder="PNR">
+<button name="action" value="cancel">Cancel</button>
+</form>
+</div>
+
+<h3>{{ message }}</h3>
+
+<div class="box">
+<table border="1">
+<tr><th>PNR</th><th>Name</th><th>Status</th><th>Seat</th></tr>
+{% for row in data %}
+<tr>
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>
